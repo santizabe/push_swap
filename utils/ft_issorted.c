@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 19:01:33 by szapata-          #+#    #+#             */
-/*   Updated: 2024/02/28 19:23:12 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:05:41 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	ft_issorted(t_list *lst, int order)
 	int	status;
 
 	lstsize = ft_lstsize(lst);
+	status = 0;
 	if (!lst || lstsize == 1)
 		return (1);
 	if (order == 1)

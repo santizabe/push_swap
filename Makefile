@@ -1,6 +1,10 @@
 NAME = push_swap
 
-SRC = $(wildcard utils/*.c) $(wildcard *.c) 
+SRC = args_checker.c calculate_steps.c check_sorted.c ft_split_nums.c \
+	main.c sort_list.c utils/ft_issorted.c utils/ft_lstnew.c utils/ft_lstsize.c \
+	utils/ft_lstadd_back.c utils/ft_lstrotate.c utils/ft_push_node.c \
+	utils/ft_lstadd_front.c utils/ft_lstrotate
+
 
 OBJ = $(SRC:c=o)
 
@@ -8,16 +12,13 @@ $(NAME): $(OBJ)
 	ar rcs push_swap.a $(OBJ)
 
 all: $(NAME)
-	@make -C printf
-	cc $(CFLAGS) -o $(NAME) main.c printf/libftprintf.a push_swap.a
+	cc $(CFLAGS) -o $(NAME) main.c libft/libft.a push_swap.a
 
 clean:
-	@make clean -C printf
 	@rm -f utils/*.o
 	@rm -f *.o
 
 fclean:
-	@make fclean -C printf
 	@rm -f $(NAME)
 
 re: fclean all

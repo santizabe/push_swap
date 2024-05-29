@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:50:12 by szapata-          #+#    #+#             */
-/*   Updated: 2024/03/01 14:22:00 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:18:38 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,24 @@ void	set_pos(t_list *lst, int *sorted, int lstsize)
 {
 	int	i;
 
-	i = lstsize;
-	while (lstsize--)
+	i = 0;
+	while (i < lstsize)
 	{
-		if (lst->num == sorted[0])
-			lst->pos = 1;
-		if (lst->num == sorted[i - 1])
-			lst->pos = 2;
-		lst = lst->next;
+		while (1)
+		{
+			if (lst->num == sorted[i])
+			{
+				lst->pos = i + 1;
+				break ;
+			}
+			lst = lst->next;
+		}
+		i++;
 	}
 }
 
 int	*sort_list(t_list *lst)
 {
-	int	mid;
 	int	lstsize;
 	int	*sorted;
 

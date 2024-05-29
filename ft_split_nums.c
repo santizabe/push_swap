@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   ft_split_nums.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 20:10:06 by szapata-          #+#    #+#             */
-/*   Updated: 2024/03/01 13:34:03 by szapata-         ###   ########.fr       */
+/*   Created: 2024/05/29 12:02:42 by szapata-          #+#    #+#             */
+/*   Updated: 2024/05/29 14:45:41 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdlib.h>
+#include "push_swap.h"
 
-int	free_all(int n, ...)
+int	count_args(char **split)
 {
-	va_list	ap;
+	int	i;
 
-	va_start(ap, n);
-	while (n--)
-		free(va_arg(ap, void *));
-	va_end(ap);
-	return (1);
+	i = 0;
+	while (*split && ++i)
+		split++;
+	return (i);
+}
+
+char	**ft_split_nums(int *argc, char *args)
+{
+	char	**split;
+
+	split = ft_split(args, ' ');
+	if (!split)
+		return (NULL);
+	*argc = count_args(split) + 1;
+	return (split);
 }

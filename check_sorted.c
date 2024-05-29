@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 19:38:04 by szapata-          #+#    #+#             */
-/*   Updated: 2024/03/01 13:51:54 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:01:49 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	calc_dist(int count, int lstsize)
 int	check_sorted(t_list *lst, int lstsize)
 {
 	int		count;
-	t_list	*tmp;
 
 	count = 0;
 	while (lstsize-- && ++count)

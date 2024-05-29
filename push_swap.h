@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:39:04 by szapata-          #+#    #+#             */
-/*   Updated: 2024/03/01 13:33:37 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:02:18 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include "printf/ft_printf.h"
+# include <unistd.h>
+# include "libft/libft.h"
 
 typedef struct s_list
 {
@@ -40,6 +41,7 @@ int		ft_issorted(t_list *lst, int order);
 int		*sort_list(t_list *lst);
 void	calculate_steps(t_list *a, int *sorted_list);
 int		check_sorted(t_list *lst, int lstsize);
-int		free_all(int n, ...);
+int		check_args(char **argv, int argc);
+char	**ft_split_nums(int *argc, char *args);
 
 #endif
