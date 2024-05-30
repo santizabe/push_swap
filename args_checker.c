@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 10:56:20 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/29 15:01:03 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/30 23:26:56 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	check_num_str(char *str)
 	while (str && *str)
 		if (!ft_isdigit(*str++))
 			return (0);
-	n = ft_atoi(tmp);
+	n = ft_atol(tmp);
 	if (n < -2147483648 || n > 2147483647)
 		return (0);
 	return (1);

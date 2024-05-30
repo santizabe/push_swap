@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:08:58 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/29 14:36:34 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/30 23:45:16 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ static t_list	*set_list(char **argv, int argc)
 
 void	free_split(char **argv)
 {
+	char	**tmp;
+
+	tmp = argv;
 	while (*argv)
 	{
 		free(*argv);
 		argv++;
 	}
+	free(tmp);
 }
 
 int	main(int argc, char **argv)
@@ -54,7 +58,7 @@ int	main(int argc, char **argv)
 		argv = ft_split_nums(&argc, *argv);
 	if (check_args(argv, argc - 1) && write(2, "Error\n", 6))
 		return (-1);
-	num_list = set_list(argv, argc);
+	num_list = set_list(argv, argc - 1);
 	if (!num_list)
 		return (-1);
 	sorted = sort_list(num_list);
