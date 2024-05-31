@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:08:58 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/30 23:45:16 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:31:46 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ static t_list	*set_list(char **argv, int argc)
 			return (NULL);
 		}
 		new->pos = 0;
+		new->target = -2147483648;
+		new->cost[0] = -1;
+		new->cost[1] = -1;
 		ft_lstadd_front(&head, new);
 	}
 	return (head);
