@@ -6,23 +6,27 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:33:53 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 04:10:48 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:07:21 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reset_targets(t_list *b, int last)
+void	set_targets(t_list *lst, int num)
 {
-	int	lstsize;
+	t_list	*tmp;
+	int		lstsize;
 
-	if (!b)
+	if (!lst)
 		return ;
-	lstsize = ft_lstsize(b);
+	lstsize = ft_lstsize(lst);
+	tmp = lst;
+	while (tmp->num != num)
+		tmp = tmp->next;
 	while (lstsize--)
 	{
-		b->target = last;
-		b = b->next;
+		lst->target = tmp;
+		lst = lst->next;
 	}
 }
 
@@ -52,10 +56,11 @@ void	calculate_steps(t_list *a, int *sorted_list)
 
 	lstsize = ft_lstsize(a);
 	b = NULL;
+	set_targets(a, sorted_list[0]);
 	while (ft_lstsize(a) > 3)
 		calc_move(&a, &b, 1);
 	sort_three(&a);
-	reset_targets(b, sorted_list[lstsize - 1]);
+	set_targets(b, sorted_list[lstsize - 1]);
 	while(ft_lstsize(b))
 		calc_move(&a, &b, 2);
 	free(sorted_list);

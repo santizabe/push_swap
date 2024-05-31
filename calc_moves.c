@@ -6,13 +6,13 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 00:29:55 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:59:42 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:08:46 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    calc_asc(t_list **a, t_list **b)
+static void    calc_asc(t_list **a, t_list **b)
 {
     int size_b;
 
@@ -23,17 +23,13 @@ void    calc_asc(t_list **a, t_list **b)
         return ;
     }
     calc_targets(*a, *b, 1);
-    calc_costs(*a, *b, 1);
+    calc_costs(a, b, 1);
 }
 
-void    calc_desc(t_list **a, t_list **b)
+static void    calc_desc(t_list **a, t_list **b)
 {
-    int mids[2];
-
-    mids[0] = ft_lstsize(a) - (ft_lstsize(a) / 2);
-    mids[1] = ft_lstsize(b) - (ft_lstsize(b) / 2);
     calc_targets(*a, *b, 2);
-    calc_costs(*a, *b, &mids, 2);
+    calc_costs(a, b, 2);
 }
 
 void    calc_move(t_list **a, t_list **b, char order)

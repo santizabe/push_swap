@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:50:12 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 02:02:54 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:08:01 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	set_pos(t_list *lst, int *sorted, int lstsize)
 			if (lst->num == sorted[i])
 			{
 				lst->pos = i + 1;
-				lst->target = sorted[0];
+				lst->target = lst;
 				break ;
 			}
 			lst = lst->next;

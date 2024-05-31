@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 19:01:33 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/29 14:05:41 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:09:05 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @return: 1 if sorted, else 0.
 */
 
-int	calc_asc(t_list *lst, int lstsize)
+static int	calc_asc(t_list *lst, int lstsize)
 {
 	int	tmp;
 
@@ -32,7 +32,7 @@ int	calc_asc(t_list *lst, int lstsize)
 	return (1);
 }
 
-int	calc_desc(t_list *lst, int lstsize)
+static int	calc_desc(t_list *lst, int lstsize)
 {
 	int	tmp;
 
