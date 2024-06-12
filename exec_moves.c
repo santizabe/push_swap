@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 07:39:28 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 04:58:13 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:14:46 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void    exec_a_b(t_list **a, t_list **b, t_list *min)
 {
 	if (min->t_cost[0] == 0)
 	{
-		while (min->cost[0]-- && write(1, "ra\n", 3))
+		while (min->cost[0] && min->cost[0]-- && write(1, "ra\n", 3))
 			ft_lstrotate(a);
-		while (min->target->cost[1]-- && write(1, "rrb\n", 4))
+		while (min->target->cost[1] && min->target->cost[1]--
+			&& write(1, "rrb\n", 4))
 			ft_lstrotate_rev(b);
 		if (!min->cost[0] && !min->target->cost[1]
 			&& write(1, "pb\n", 3))
@@ -42,9 +43,10 @@ void    exec_a_b(t_list **a, t_list **b, t_list *min)
 	}
 	else if (min->t_cost[0] == 1)
 	{
-		while (min->cost[1]-- && write(1, "rra\n", 4))
+		while (min->cost[1] && min->cost[1]-- && write(1, "rra\n", 4))
 			ft_lstrotate_rev(a);
-		while (min->target->cost[0]-- && write(1, "rb\n", 3))
+		while (min->target->cost[0] && min->target->cost[0]--
+			&& write(1, "rb\n", 3))
 			ft_lstrotate(b);
 		if (!min->cost[1] && !min->target->cost[0]
 			&& write(1, "pb\n", 3))
@@ -58,9 +60,10 @@ void    exec_b_a(t_list **b, t_list **a, t_list *min)
 {
 	if (min->t_cost[0] == 0)
 	{
-		while (min->cost[0]-- && write(1, "rb\n", 3))
+		while (min->cost[0] && min->cost[0]-- && write(1, "rb\n", 3))
 			ft_lstrotate(b);
-		while (min->target->cost[1]-- && write(1, "rra\n", 4))
+		while (min->target->cost[1] && min->target->cost[1]--
+			&& write(1, "rra\n", 4))
 			ft_lstrotate_rev(a);
 		if (!min->cost[0] && !min->target->cost[1]
 			&& write(1, "pa\n", 3))
@@ -68,9 +71,10 @@ void    exec_b_a(t_list **b, t_list **a, t_list *min)
 	}
 	else if (min->t_cost[0] == 1)
 	{
-		while (min->cost[1]-- && write(1, "rrb\n", 4))
+		while (min->cost[1] && min->cost[1]-- && write(1, "rrb\n", 4))
 			ft_lstrotate_rev(b);
-		while (min->target->cost[0]-- && write(1, "ra\n", 3))
+		while (min->target->cost[0] && min->target->cost[0]--
+			&& write(1, "ra\n", 3))
 			ft_lstrotate(a);
 		if (!min->cost[0] && !min->target->cost[1]
 			&& write(1, "pa\n", 3))

@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 03:24:19 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 11:11:54 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:40:28 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	get_target_b(t_list *b, t_list *a)
 	t_list	*min;
 	int		tmp_tgt;
 
+	if (b->pos + 1 == b->target->pos)
+		return ;
 	lstsize = ft_lstsize(a);
 	min = a;
 	tmp_tgt = b->target->num;
@@ -25,7 +27,7 @@ void	get_target_b(t_list *b, t_list *a)
 	{
 		if (a->num < min->num)
 			min = a;
-		if (a->num < b->target->num && a->num > b->num)
+		if (a->num <= b->target->num && a->num > b->num)
 			b->target = a;
 		a = a->next;
 	}
@@ -39,6 +41,8 @@ void	get_target_a(t_list *a, t_list *b)
 	t_list	*max;
 	int		tmp_tgt;
 
+	if (a->target->pos + 1 == a->pos)
+		return ;
 	lstsize = ft_lstsize(b);
 	max = b;
 	tmp_tgt = a->target->num;
@@ -46,7 +50,7 @@ void	get_target_a(t_list *a, t_list *b)
 	{
 		if (b->num > max->num)
 			max = b;
-		if (b->num > a->target->num && b->num < a->num)
+		if (b->num >= a->target->num && b->num < a->num)
 			a->target = b;
 		b = b->next;
 	}
