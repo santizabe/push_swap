@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:34:39 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:05:36 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:51:57 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	ft_push_node(t_list **src, t_list **dst)
 	{
 		(*src)->next->prev = (*src)->prev;
 		(*src)->prev->next = (*src)->next;
+		if ((*src)->next == (*src)->prev)
+		{
+			(*src)->next->next = NULL;
+			(*src)->next->prev = NULL;
+		}
 	}
 	*src = (*src)->next;
 	tmp->next = NULL;

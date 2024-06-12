@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_nums.c                                    :+:      :+:    :+:   */
+/*   order_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 12:02:42 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 20:14:43 by szapata-         ###   ########.fr       */
+/*   Created: 2024/06/12 19:15:36 by szapata-          #+#    #+#             */
+/*   Updated: 2024/06/12 19:36:30 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_args(char **split)
+int	find_order(t_list *a)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (*split && ++i)
-		split++;
-	return (i);
+	count = 0;
+	while (a->pos != 1 && ++count)
+		a = a->next;
+	return (count);
 }
 
-char	**ft_split_nums(int *argc, char *args)
+void	order_list(t_list **a)
 {
-	char	**split;
+	int	lstsize;
+	int	mid;
+	int	count;
 
-	if (!ft_strlen(args))
-		split = ft_split("0 0", ' ');
+	lstsize = ft_lstsize(*a);
+	mid = lstsize / 2;
+	count = find_order(*a);
+	if (count < lstsize / 2)
+		while (count-- && write(1, "ra\n", 3))
+			ft_lstrotate(a);
 	else
-		split = ft_split(args, ' ');
-	if (!split)
-		return (NULL);
-	*argc = count_args(split) + 1;
-	return (split);
+		while (count++ < lstsize && write(1, "rra\n", 4))
+			ft_lstrotate_rev(a);
 }

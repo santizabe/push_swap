@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:33:53 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 04:23:57 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 22:38:26 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,18 @@ void	calculate_steps(t_list *a, int *sorted_list)
 	min = NULL;
 	max = NULL;
 	set_min_max(a, &min, &max);
-	set_targets(a, min);
 	while (ft_lstsize(a) > 3)
+	{
+		set_targets(a, min);
 		calc_move(&a, &b, 1);
+	}
 	sort_three(&a);
-	set_targets(b, max);
 	while(ft_lstsize(b))
+	{
+		set_targets(b, max);
 		calc_move(&a, &b, 2);
+	}
+	order_list(&a);
 	free(sorted_list);
 	ft_lstclear(&a);
 }

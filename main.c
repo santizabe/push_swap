@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:08:58 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 03:32:17 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:46:03 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 		return (0);
 	else if (argc == 2 && ++split)
 		argv = ft_split_nums(&argc, *argv);
-	if (check_args(argv, argc - 1) && write(2, "Error\n", 6))
+	if (check_args(argv, argc - 1, split) && write(2, "Error\n", 6))
 		return (-1);
 	num_list = set_list(argv, argc - 1);
 	if (!num_list)
