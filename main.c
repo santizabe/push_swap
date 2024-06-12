@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:08:58 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 09:57:29 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 03:32:17 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_list	*set_list(char **argv, int argc)
 	t_list	*new;
 
 	head = NULL;
-	while (--argc > 0)
+	while (argc--)
 	{
 		new = ft_lstnew(ft_atoi(argv[argc]));
 		if (!new)
@@ -30,6 +30,8 @@ static t_list	*set_list(char **argv, int argc)
 		new->target = new;
 		new->cost[0] = -1;
 		new->cost[1] = -1;
+		new->t_cost[0] = 0;
+		new->t_cost[0] = 0;
 		ft_lstadd_front(&head, new);
 	}
 	return (head);

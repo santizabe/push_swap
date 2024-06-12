@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:39:04 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 11:07:28 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 04:58:37 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 	int				num;
 	unsigned int	pos;
 	unsigned int	cost[2];
+	unsigned int	t_cost[2];
 	struct s_list	*target;
 	struct s_list	*next;
 	struct s_list	*prev;
@@ -45,7 +46,10 @@ void	calculate_steps(t_list *a, int *sorted_list);
 void    calc_move(t_list **a, t_list **b, char order);
 void	calc_costs(t_list **a, t_list **b, int order);
 void    calc_targets(t_list *a, t_list *b, int order);
-void    exec_moves(t_list **a, t_list **b, int *res, int order);
+void    exec_moves(t_list **a, t_list **b, int order);
+void    exec_a_b_ext(t_list **a, t_list **b, t_list *min);
+void    exec_b_a_ext(t_list **b, t_list **a, t_list *min);
+int		get_cost_a_b(t_list *min);
 int		check_sorted(t_list *lst, int lstsize);
 int		check_args(char **argv, int argc);
 char	**ft_split_nums(int *argc, char *args);

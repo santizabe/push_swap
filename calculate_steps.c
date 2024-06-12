@@ -6,26 +6,38 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:33:53 by szapata-          #+#    #+#             */
-/*   Updated: 2024/05/31 10:07:21 by szapata-         ###   ########.fr       */
+/*   Updated: 2024/06/12 04:23:57 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_targets(t_list *lst, int num)
+void	set_min_max(t_list *a, t_list **min, t_list **max)
 {
-	t_list	*tmp;
-	int		lstsize;
+	int	lstsize;
+	int	count;
 
-	if (!lst)
-		return ;
+	lstsize = ft_lstsize(a);
+	count = 0;
+	while (count < lstsize)
+	{
+		if (a->pos == 1)
+			*min = a;
+		else if ((int)a->pos == lstsize)
+			*max = a;
+		a = a->next;
+		count++;
+	}
+}
+
+void	set_targets(t_list *lst, t_list *tgt)
+{
+	int	lstsize;
+
 	lstsize = ft_lstsize(lst);
-	tmp = lst;
-	while (tmp->num != num)
-		tmp = tmp->next;
 	while (lstsize--)
 	{
-		lst->target = tmp;
+		lst->target = tgt;
 		lst = lst->next;
 	}
 }
@@ -52,15 +64,20 @@ void	sort_three(t_list **a)
 void	calculate_steps(t_list *a, int *sorted_list)
 {
 	t_list	*b;
+	t_list	*min;
+	t_list	*max;
 	int		lstsize;
 
 	lstsize = ft_lstsize(a);
 	b = NULL;
-	set_targets(a, sorted_list[0]);
+	min = NULL;
+	max = NULL;
+	set_min_max(a, &min, &max);
+	set_targets(a, min);
 	while (ft_lstsize(a) > 3)
 		calc_move(&a, &b, 1);
 	sort_three(&a);
-	set_targets(b, sorted_list[lstsize - 1]);
+	set_targets(b, max);
 	while(ft_lstsize(b))
 		calc_move(&a, &b, 2);
 	free(sorted_list);
