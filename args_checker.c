@@ -25,7 +25,6 @@ static void	free_split(char **argv)
 	free(tmp);
 }
 
-
 static int	check_num_str(char *str)
 {
 	char	*tmp;

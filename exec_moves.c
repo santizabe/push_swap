@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-t_list  *get_cheapest_node(t_list *lst)
+t_list	*get_cheapest_node(t_list *lst)
 {
-	int     lstsize;
-	t_list  *min;
+	int		lstsize;
+	t_list	*min;
 
 	lstsize = ft_lstsize(lst);
 	min = lst;
@@ -28,7 +28,7 @@ t_list  *get_cheapest_node(t_list *lst)
 	return (min);
 }
 
-void    exec_a_b(t_list **a, t_list **b, t_list *min)
+void	exec_a_b(t_list **a, t_list **b, t_list *min)
 {
 	if (min->t_cost[0] == 0)
 	{
@@ -56,7 +56,7 @@ void    exec_a_b(t_list **a, t_list **b, t_list *min)
 		exec_a_b_ext(a, b, min);
 }
 
-void    exec_b_a(t_list **b, t_list **a, t_list *min)
+void	exec_b_a(t_list **b, t_list **a, t_list *min)
 {
 	if (min->t_cost[0] == 0)
 	{
@@ -84,9 +84,9 @@ void    exec_b_a(t_list **b, t_list **a, t_list *min)
 		exec_b_a_ext(b, a, min);
 }
 
-void    exec_two(t_list **a, t_list **b, t_list *min)
+void	exec_two(t_list **a, t_list **b, t_list *min)
 {
-	int count;
+	int	count;
 
 	if (min->t_cost[0] == 0 || min->t_cost[0] == 1)
 		return ;
@@ -99,9 +99,9 @@ void    exec_two(t_list **a, t_list **b, t_list *min)
 			ft_lstrotate_rev_two(a, b);
 }
 
-void    exec_moves(t_list **a, t_list **b, int order)
+void	exec_moves(t_list **a, t_list **b, int order)
 {
-	t_list *min;
+	t_list	*min;
 
 	min = NULL;
 	if (order == 1)

@@ -58,7 +58,7 @@ void	get_target_a(t_list *a, t_list *b)
 		a->target = max;
 }
 
-void    calc_targets(t_list *a, t_list *b, int order)
+void	calc_targets(t_list *a, t_list *b, int order)
 {
 	int	lstsize;
 

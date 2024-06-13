@@ -36,7 +36,7 @@ int	get_cost_a_b(t_list *min)
 	return (count);
 }
 
-void    exec_a_b_ext(t_list **a, t_list **b, t_list *min)
+void	exec_a_b_ext(t_list **a, t_list **b, t_list *min)
 {
 	if (min->t_cost[0] == 2)
 	{
@@ -62,13 +62,13 @@ void    exec_a_b_ext(t_list **a, t_list **b, t_list *min)
 	}
 }
 
-void    exec_b_a_ext(t_list **b, t_list **a, t_list *min)
+void	exec_b_a_ext(t_list **b, t_list **a, t_list *min)
 {
 	if (min->t_cost[0] == 2)
 	{
 		while (min->cost[0] && min->cost[0]-- && write(1, "rb\n", 3))
 			ft_lstrotate(b);
-		while (min->target->cost[0] && min->target->cost[0]-- 
+		while (min->target->cost[0] && min->target->cost[0]--
 			&& write(1, "ra\n", 3))
 			ft_lstrotate(a);
 		if (!min->cost[0] && !min->target->cost[0]

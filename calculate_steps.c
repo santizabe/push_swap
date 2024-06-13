@@ -59,7 +59,7 @@ void	sort_three(t_list **a)
 		else if ((*a)->num > (*a)->next->num && write(1, "sa\n", 3))
 			ft_swap(a);
 	}
-}	
+}
 
 void	calculate_steps(t_list *a, int *sorted_list)
 {
@@ -79,7 +79,7 @@ void	calculate_steps(t_list *a, int *sorted_list)
 		calc_move(&a, &b, 1);
 	}
 	sort_three(&a);
-	while(ft_lstsize(b))
+	while (ft_lstsize(b))
 	{
 		set_targets(b, max);
 		calc_move(&a, &b, 2);
