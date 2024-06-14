@@ -61,14 +61,12 @@ void	sort_three(t_list **a)
 	}
 }
 
-void	calculate_steps(t_list *a, int *sorted_list)
+void	calculate_steps(t_list *a)
 {
 	t_list	*b;
 	t_list	*min;
 	t_list	*max;
-	int		lstsize;
 
-	lstsize = ft_lstsize(a);
 	b = NULL;
 	min = NULL;
 	max = NULL;
@@ -85,6 +83,4 @@ void	calculate_steps(t_list *a, int *sorted_list)
 		calc_move(&a, &b, 2);
 	}
 	order_list(&a);
-	free(sorted_list);
-	ft_lstclear(&a);
 }

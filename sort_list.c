@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_lstcopy(t_list *lst, int	*sorted, int lstsize)
+static void	ft_lstcopy(t_list *lst, int	*sorted, int lstsize)
 {
 	while (lstsize--)
 	{
@@ -22,7 +22,7 @@ void	ft_lstcopy(t_list *lst, int	*sorted, int lstsize)
 	}
 }
 
-void	ft_sort_arr(int	*sorted, int size)
+static void	ft_sort_arr(int	*sorted, int size)
 {
 	int	tmp;
 	int	i;
@@ -46,7 +46,7 @@ void	ft_sort_arr(int	*sorted, int size)
 	}
 }
 
-void	set_pos(t_list *lst, int *sorted, int lstsize)
+static void	set_pos(t_list *lst, int *sorted, int lstsize)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ void	set_pos(t_list *lst, int *sorted, int lstsize)
 	}
 }
 
-int	*sort_list(t_list *lst)
+int	sort_list(t_list *lst)
 {
 	int	lstsize;
 	int	*sorted;
@@ -75,9 +75,13 @@ int	*sort_list(t_list *lst)
 	lstsize = ft_lstsize(lst);
 	sorted = (int *)malloc(lstsize * sizeof(int));
 	if (!sorted)
-		return (NULL);
+	{
+		ft_lstclear(&lst);
+		return (0);
+	}
 	ft_lstcopy(lst, sorted, lstsize);
 	ft_sort_arr(sorted, lstsize);
 	set_pos(lst, sorted, lstsize);
-	return (sorted);
+	free(sorted);
+	return (1);
 }

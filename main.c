@@ -54,7 +54,6 @@ int	main(int argc, char **argv)
 {
 	t_list	*num_list;
 	int		split;
-	int		*sorted;
 
 	split = 0;
 	if (argv++ && argc == 1)
@@ -66,10 +65,14 @@ int	main(int argc, char **argv)
 	num_list = set_list(argv, argc - 1);
 	if (!num_list)
 		return (-1);
-	sorted = sort_list(num_list);
-	if (sorted)
-		calculate_steps(num_list, sorted);
+	if (!sort_list(num_list) && write(2, "Error\n", 6))
+		return (-1);
+	if (!ft_issorted(num_list, 1))
+		calculate_steps(num_list);
+	else
+		order_list(&num_list);
 	if (split)
 		free_split(argv);
+	ft_lstclear(&num_list);
 	return (0);
 }

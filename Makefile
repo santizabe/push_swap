@@ -15,19 +15,21 @@ SRC = args_checker.c calculate_steps.c ft_split_nums.c \
 
 SRC_B = read.c
 
-OBJ = $(SRC:c.o)
+OBJ = $(SRC:c=o)
 
-B_OBJ = $(SRC_B:c.o)
+B_OBJ = $(SRC_B:c=o)
 
 CFLAGS = -Wall -Werror -Wextra
 
 $(NAME): $(OBJ)
-	clang $(CFLAGS) -o $(NAME) $(OBJ) main.c libft/libft.a
+	@clang $(CFLAGS) -o $(NAME) $(OBJ) main.c libft/libft.a
+	@make clean
 
 all: $(NAME) clean
 
 bonus: $(B_OBJ) $(OBJ)
 	@clang $(CFLAGS) -o $(BONUS) $(B_OBJ) $(OBJ) bonus.c libft/libft.a
+	@make clean
 
 clean:
 	@rm -f utils/*.o
@@ -36,6 +38,11 @@ clean:
 fclean:
 	@rm -f $(NAME)
 
+fclean_b:
+	@rm -f $(BONUS)
+
 re: fclean all
+
+re_b: fclean_b bonus
 
 .PHONY: all clean fclean re

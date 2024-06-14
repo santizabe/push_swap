@@ -29,6 +29,8 @@ void	order_list(t_list **a)
 	int	count;
 
 	lstsize = ft_lstsize(*a);
+	if (lstsize == 1)
+		return ;
 	mid = lstsize / 2;
 	count = find_order(*a);
 	if (count < lstsize / 2)

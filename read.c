@@ -50,7 +50,7 @@ static int	read_line(char *buffer, int *err)
 	count = 0;
 	while (i < 4)
 	{
-		count = read(1, &buffer[i], 1);
+		count = read(0, &buffer[i], 1);
 		if (count < 0 && ++(*err))
 			return (0);
 		else if (count == 0)
@@ -75,14 +75,18 @@ void	read_instructions(t_list *a, int *sorted_list)
 		write(2, "Error\n", 6);
 	else
 		while (read_line(buffer, &err))
-			if ((buffer, &a, &b) == -1 && ++err)
+			if (exec_line(buffer, &a, &b) == -1 && ++err)
 				break ;
 	if (err)
 		write(2, "Error\n", 6);
-	if (!ft_issorted(a, 1) || ft_lstsize(b))
-		write(1, "KO\n", 3);
 	else
-		write(1, "OK\n", 3);
+	{
+		if (!ft_issorted(a, 1) || ft_lstsize(b))
+			write(1, "KO\n", 3);
+		else
+			write(1, "OK\n", 3);
+	}
+	free(buffer);
 	free(sorted_list);
 	ft_lstclear(&a);
 }
