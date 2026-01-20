@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:39:04 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 19:46:15 by szapata-         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:59:40 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_lstrotate_rev(t_list **lst);
 void	ft_lstrotate_rev_two(t_list **lst_a, t_list **lst_b);
 int		ft_lstsize(t_list *lst);
 int		ft_issorted(t_list *lst, int order);
+long		ft_atol(const char *str);
 int		sort_list(t_list *lst);
 void	calculate_steps(t_list *a);
 void    calc_move(t_list **a, t_list **b, char order);
