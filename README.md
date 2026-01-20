@@ -102,11 +102,11 @@ Should display OK
 
 ## The Algorithm
 
-[Option 1: For small sets / Simple Sort]
+### Simple Sort
 
 For 3 arguments, the program uses hard-coded logic to sort instantly with minimal moves.
 
-[Option 2: Turk Algorithm / Cost Analysis]
+### Turk Algorithm / Cost Analysis
 
 For larger sets, I implemented a cost-analysis algorithm:
 
