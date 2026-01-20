@@ -39,6 +39,7 @@ bonus: $(B_OBJ) $(OBJ)
 	@make clean
 
 clean:
+	@make clean -sC libft
 	@rm -f utils/*.o
 	@rm -f *.o
 
