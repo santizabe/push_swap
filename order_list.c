@@ -6,7 +6,7 @@
 /*   By: szapata- <szapata-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:15:36 by szapata-          #+#    #+#             */
-/*   Updated: 2024/06/12 19:36:30 by szapata-         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:12:03 by szapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ int	find_order(t_list *a)
 void	order_list(t_list **a)
 {
 	int	lstsize;
-	int	mid;
 	int	count;
 
 	lstsize = ft_lstsize(*a);
 	if (lstsize == 1)
 		return ;
-	mid = lstsize / 2;
 	count = find_order(*a);
 	if (count < lstsize / 2)
 		while (count-- && write(1, "ra\n", 3))
