@@ -79,6 +79,7 @@ pa
 pa
 pa
 ```
+
 Verifying the result
 
 To verify if the output actually sorts the list, you can pipe it into the checker.
@@ -87,21 +88,15 @@ Note: You must compile the bonus first to generate the checker executable.
 
 Compile the bonus:
 
-code
-Bash
-download
-content_copy
-expand_less
+```bash
 make bonus
+```
 
 Run the check:
 
-code
-Bash
-download
-content_copy
-expand_less
+```bash
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+```
 
 Should display OK
 
